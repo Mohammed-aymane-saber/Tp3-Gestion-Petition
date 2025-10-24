@@ -2,8 +2,10 @@
 session_start();
 require '../../db.php';
 
+require '../../config.php'; // Inclure la configuration
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: ../Login_view.php');
+    header('Location: ' . BASE_URL . '/User/Login_view.php');
     exit();
 }
 
@@ -11,7 +13,7 @@ $email = $_POST['email'] ?? '';
 $code = $_POST['code'] ?? '';
 
 if (empty($email) || empty($code)) {
-    header('Location: ../verify_account.php?email=' . urlencode($email) . '&error=' . urlencode('Veuillez entrer le code.'));
+    header('Location: ' . BASE_URL . '/User/verify_account.php?email=' . urlencode($email) . '&error=' . urlencode('Veuillez entrer le code.'));
     exit();
 }
 
@@ -38,11 +40,11 @@ if ($result) {
     $delete_stmt->execute([$code_id]);
 
     // 4. Rediriger vers la page de connexion avec un message de succès
-    header('Location: ../Login_view.php?status=verified'); // Vous pouvez ajouter un message de succès sur la page de login
+    header('Location: ' . BASE_URL . '/User/Login_view.php?status=verified');
     exit();
 } else {
     // Code invalide ou expiré
-    header('Location: ../verify_account.php?email=' . urlencode($email) . '&error=' . urlencode('Code invalide ou expiré.'));
+    header('Location: ' . BASE_URL . '/User/verify_account.php?email=' . urlencode($email) . '&error=' . urlencode('Code invalide ou expiré.'));
     exit();
 }
 ?>

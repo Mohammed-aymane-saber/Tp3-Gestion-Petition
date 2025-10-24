@@ -2,9 +2,10 @@
 session_start();
 require '../../db.php';
 require '../EmailService.php';
+require '../../config.php'; // Inclure la configuration
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: ../Register_view.php');
+    header('Location: ' . BASE_URL . '/User/Register_view.php');
     exit();
 }
 
@@ -48,7 +49,7 @@ try {
 
     if ($emailSent) {
         // Rediriger vers la page de vérification
-        header('Location: ../verify_account.php?email=' . urlencode($email));
+        header('Location: ' . BASE_URL . '/User/verify_account.php?email=' . urlencode($email));
         exit();
     } else {
         die("Erreur lors de l'envoi de l'email de confirmation. Veuillez contacter le support.");

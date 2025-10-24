@@ -1,3 +1,4 @@
 firebase_credentials.json
 .env
 smtp_config.php
+db.php

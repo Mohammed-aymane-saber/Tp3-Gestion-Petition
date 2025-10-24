@@ -1,5 +1,6 @@
 <?php
-// Récupérer les cookies pour "Se souvenir de moi"
+require '../config.php'; 
+
 $remembered_email = $_COOKIE['email_user'] ?? $_COOKIE['email_admin'] ?? '';
 $remembered_password = $_COOKIE['password_user'] ?? $_COOKIE['password_admin'] ?? '';
 $is_remembered = !empty($remembered_email);
@@ -18,7 +19,6 @@ $is_remembered = !empty($remembered_email);
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
     import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
 
-    // 🔧 Configuration Firebase
    const firebaseConfig = {
     apiKey: "AIzaSyBE2xDWDT_0hn8iI_fB0tjP86P7B_QsBlI",
     authDomain: "petition-tp3.firebaseapp.com",
@@ -57,7 +57,8 @@ $is_remembered = !empty($remembered_email);
             });
 
             if (res.ok) {
-              window.location.href = "Clients/User_view_petitions.php";
+              // Utiliser l'URL de base définie en PHP
+              window.location.href = "<?php echo BASE_URL; ?>/User/Clients/User_view_petitions.php";
             } else {
               const text = await res.text();
               alert("Erreur serveur : " + text);
