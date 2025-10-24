@@ -8,6 +8,7 @@ $error = isset($_GET['error']) ? htmlspecialchars($_GET['error']) : '';
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vérification du Compte</title>
+  <link rel="icon" type="image/png" href="../Assets/Images/favicon.png"> <!-- Ajout du Favicon -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 min-h-screen flex flex-col justify-center items-center text-gray-800 font-sans">

@@ -27,7 +27,8 @@ $petitions_a_afficher = []; // Initialisé à vide.
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toutes les Pétitions</title>
+  <title>Toutes les Pétitions</title>
+  <link rel="icon" type="image/png" href="../../Assets/Images/favicon.png"> <!-- Ajout du Favicon -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100 font-sans">

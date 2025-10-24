@@ -18,6 +18,7 @@ $petitions = $stmt->fetchAll(PDO::FETCH_ASSOC);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gestion des Pétitions</title>
+  <link rel="icon" type="image/png" href="/Assets/Images/favicon.png"> <!-- Ajout du Favicon -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     /* Animation de défilement infini */
