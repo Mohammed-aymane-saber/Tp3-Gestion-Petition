@@ -21,13 +21,13 @@ $is_remembered = !empty($remembered_email);
     import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-auth.js";
 
    const firebaseConfig = {
-    apiKey: "AIzaSyBE2xDWDT_0hn8iI_fB0tjP86P7B_QsBlI",
-    authDomain: "petition-tp3.firebaseapp.com",
-    projectId: "petition-tp3",
-    storageBucket: "petition-tp3.firebasestorage.app",
-    messagingSenderId: "755807680113",
-    appId: "1:755807680113:web:773ee24bb014fa95040dd0",
-    measurementId: "G-J74MJR0DPR"
+    apiKey: "<?php echo $_SERVER['FIREBASE_API_KEY'] ?? 'votre_cle_locale'; ?>",
+    authDomain: "<?php echo $_SERVER['FIREBASE_AUTH_DOMAIN'] ?? 'petition-tp3.firebaseapp.com'; ?>",
+    projectId: "<?php echo $_SERVER['FIREBASE_PROJECT_ID'] ?? 'petition-tp3'; ?>",
+    storageBucket: "<?php echo $_SERVER['FIREBASE_STORAGE_BUCKET'] ?? 'petition-tp3.appspot.com'; ?>",
+    messagingSenderId: "<?php echo $_SERVER['FIREBASE_MESSAGING_SENDER_ID'] ?? '755807680113'; ?>",
+    appId: "<?php echo $_SERVER['FIREBASE_APP_ID'] ?? 'votre_app_id_local'; ?>",
+    measurementId: "<?php echo $_SERVER['FIREBASE_MEASUREMENT_ID'] ?? 'G-XXXXXXXXXX'; ?>"
   };
 
 
