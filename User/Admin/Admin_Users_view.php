@@ -75,10 +75,7 @@ $users = $stmt_users->fetchAll(PDO::FETCH_ASSOC);
                                 echo htmlspecialchars($dateFormatted . $ageText);
                                 ?>
                             </td>
-                            <!-- <td class="px-4 py-2 border-b">
-                                <button class="bg-blue-500 text-white px-3 py-1 rounded text-sm hover:bg-blue-600">Modifier</button>
-                                <button class="bg-red-500 text-white px-3 py-1 rounded text-sm hover:bg-red-600 ml-2">Supprimer</button>
-                            </td> -->
+                         
                         </tr>
                         <?php endforeach; ?>
                     <?php endif; ?>

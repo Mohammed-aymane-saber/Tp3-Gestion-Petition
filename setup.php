@@ -55,6 +55,14 @@ $sql_dump = <<<SQL
 -- Version de PHP : 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+
+-- Temporarily disable foreign key checks to allow dropping tables in any order
+SET FOREIGN_KEY_CHECKS=0;
+
+DROP TABLE IF EXISTS `account_confirmations`;
+DROP TABLE IF EXISTS `petition`;
+DROP TABLE IF EXISTS `signature`;
+DROP TABLE IF EXISTS `user`;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -195,6 +203,9 @@ ALTER TABLE `petition` ADD CONSTRAINT `fk_petition_creator` FOREIGN KEY (`Creato
 ALTER TABLE `signature` ADD CONSTRAINT `fk_signature_petition` FOREIGN KEY (`idP`) REFERENCES `petition` (`idP`) ON DELETE CASCADE ON UPDATE CASCADE, ADD CONSTRAINT `fk_signature_user` FOREIGN KEY (`idUser`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 COMMIT;
+
+-- Re-enable foreign key checks
+SET FOREIGN_KEY_CHECKS=1;
 SQL;
 
 try {
